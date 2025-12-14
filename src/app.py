@@ -16,7 +16,7 @@ Conversations = {}
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/" , methods=["GET"])
 def home():
     return "program is all well and running"
 
