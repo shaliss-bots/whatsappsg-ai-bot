@@ -13,7 +13,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 
 Conversations = {}
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static")
 
 
 @app.route("/", methods=["GET"])
@@ -38,13 +38,18 @@ def receiveMessage():
             )
             Conversations[conversation_id] = conv
 
-        reply = conv.prompt_response(message)
-        resp.message(reply)
+            msg = resp.message()
+            msg.media()
+            resp.message("shaliss AI*\n" "hi welcome!\n" "GOD BLESS YOU")
+
+        else:
+            reply = conv.prompt_response(message)
+            resp.message(reply)
 
     except Exception as e:
-
         import traceback
-    traceback.print_exc()
-    resp.message("Something went wrong")
+
+        traceback.print_exc()
+        resp.message("Something went wrong")
 
     return Response(str(resp), mimetype="application/xml")
