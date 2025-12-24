@@ -43,7 +43,7 @@ def receiveMessage():
 
             msg = resp.message()
             msg.media(
-                "https://raw.githubusercontent.com/shaliss-bots/whatsappsg-ai-bot/main/src/static/logo.png"
+                "https://res.cloudinary.com/dd4bsgg46/image/upload/v1766582222/logo_waxigc.png"
             )
             resp.message("shaliss AI*\n" "hi welcome!\n" "GOD BLESS YOU")
 
