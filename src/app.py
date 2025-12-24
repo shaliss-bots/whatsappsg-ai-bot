@@ -14,7 +14,10 @@ from twilio.twiml.messaging_response import MessagingResponse
 
 Conversations = {}
 
-app = Flask(__name__, static_folder="static")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+app = Flask(
+    __name__, static_folder=os.path.join(BASE_DIR, "static"), static_url_path="/static"
+)
 
 
 @app.route("/", methods=["GET"])
@@ -24,9 +27,7 @@ def home():
 
 @app.route("/logo")
 def logo():
-    return send_from_directory(
-        directory=os.path.join(app.root_path, "static"), path="logo.png"
-    )
+    return send_from_directory(os.path.join(BASE_DIR, "static"), path="logo.png")
 
 
 @app.route("/twilio/receiveMessage", methods=["POST"])
