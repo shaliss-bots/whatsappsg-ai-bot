@@ -44,7 +44,6 @@ def receiveMessage():
 
         else:
             reply = conv.prompt_response(message)
-            resp.message(reply)
 
     except Exception as e:
         import traceback
