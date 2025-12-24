@@ -42,7 +42,9 @@ def receiveMessage():
             Conversations[conversation_id] = conv
 
             msg = resp.message()
-            msg.media()
+            msg.media(
+                "https://raw.githubusercontent.com/shaliss-bots/whatsappsg-ai-bot/main/src/static/logo.png"
+            )
             resp.message("shaliss AI*\n" "hi welcome!\n" "GOD BLESS YOU")
 
         else:
