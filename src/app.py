@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from flask import Flask, request, Response
+from flask import send_from_directory
 from helper.openai_api import Conversation
 from twilio.twiml.messaging_response import MessagingResponse
 
@@ -19,6 +20,13 @@ app = Flask(__name__, static_folder="static")
 @app.route("/", methods=["GET"])
 def home():
     return "program is all well and running"
+
+
+@app.route("/logo")
+def logo():
+    return send_from_directory(
+        directory=os.path.join(app.root_path, "static"), path="logo.png"
+    )
 
 
 @app.route("/twilio/receiveMessage", methods=["POST"])
