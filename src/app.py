@@ -24,11 +24,11 @@ def home():
     return "program is all well and  running "
 
 
-@app.route("/twilio/receiveMessage", methods=["POST"])
+@app.route("/receive", methods=["POST"])
 def receiveMessage():
     resp = MessagingResponse()
     try:
-        message = request.form["Body"]
+        message = request.form.get["Body",""].strip()
         sender_id = request.form["From"]  # whatsapp:+919685168546
 
         conversation_id = re.sub(r"\w+", "", sender_id, 0, re.IGNORECASE)
@@ -41,11 +41,10 @@ def receiveMessage():
             )
             Conversations[conversation_id] = conv
 
-            msg = resp.message()
+            msg = resp.message("hi,welcome to shaliss AI \n GOD BLESS YOU ")
             msg.media(
                 "https://res.cloudinary.com/dd4bsgg46/image/upload/v1766582222/logo_waxigc.png"
             )
-            resp.message("shaliss AI*\n" "hi welcome!\n" "GOD BLESS YOU")
 
         else:
             reply = conv.prompt_response(message)
