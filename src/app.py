@@ -1,8 +1,4 @@
-import sys
 import os
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
 import re
 from openai import OpenAI
 
@@ -12,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from flask import Flask, request, Response
-from helper.openai_api import Conversation
+from src.helper.openai_api import Conversation
 from twilio.twiml.messaging_response import MessagingResponse
 
 Conversations = {}
