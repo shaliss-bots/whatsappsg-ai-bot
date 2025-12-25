@@ -24,7 +24,7 @@ def home():
     return "program is all well and  running "
 
 
-@app.route("/receive", methods=["POST"])
+@app.route("/whatsapp", methods=["POST"])
 def receiveMessage():
     resp = MessagingResponse()
     try:
@@ -59,4 +59,4 @@ def receiveMessage():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
