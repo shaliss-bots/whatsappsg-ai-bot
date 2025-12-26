@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from flask import Flask, request, Response
-from src.helper.openai_api import Conversation
+from helper.openai_api import Conversation
 from twilio.twiml.messaging_response import MessagingResponse
 
 Conversations = {}
