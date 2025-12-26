@@ -28,8 +28,8 @@ def home():
 def receiveMessage():
     resp = MessagingResponse()
     try:
-        message = request.form.get["Body", ""].strip()
-        sender_id = request.form["From"]  # whatsapp:+919685168546
+        message = request.form.get("Body", "").strip()
+        sender_id = request.form.get("From", "")  # whatsapp:+919685168546
 
         conversation_id = re.sub(r"\w+", "", sender_id, 0, re.IGNORECASE)
 
